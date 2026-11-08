@@ -15,6 +15,7 @@ https://projet-data-examens-astranova.streamlit.app
 
 Une ou deux phrases par membre, écrites par le membre lui-même.
 
+Narcisse: Différents diagnostics et nettoyage du fichier brut.
 
 Cedrick: Résolution des questions 4 et 5 (réussite des filières et impact des secteurs) et graphes associés, et conclusion.
 
