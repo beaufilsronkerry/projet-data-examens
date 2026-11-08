@@ -16,3 +16,5 @@ Une ou deux phrases par membre, écrites par le membre lui-même.
 
 
 Cedrick: Résolution des questions 4 et 5 (réussite des filières et impact des secteurs) et graphes associés
+
+Guy Lens: Résolution des questions 6 à 8 et graphes associés.
