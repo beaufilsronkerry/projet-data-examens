@@ -7,7 +7,7 @@
 | NARCISSE Hans Taylor | Hans-Taylor-NARCISSE | Diagnostic & Nettoyage |
 | JACQUET Ralph Clarens | RalphJacquet | Jointures et indicateurs |
 | BELDOR Cedrick S. J. | beldorcedrick | Analyses et Graphiques |
-|  |  |  |
+| LAROSE Guy Lens | LAROSEGuyLens | Analyses et Graphiques |
 |  |  |  |
 
 ## Qui a fait quoi
