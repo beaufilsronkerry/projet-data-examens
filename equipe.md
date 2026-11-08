@@ -4,7 +4,7 @@
 
 | Membre | Identifiant GitHub | Rôle principal |
 |---|---|---|
-|  |  |  |
+| NARCISSE Hans Taylor | Hans-Taylor-NARCISSE | Diagnostic & Nettoyage |
 |  |  |  |
 |  |  |  |
 |  |  |  |
