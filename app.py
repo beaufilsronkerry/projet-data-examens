@@ -29,6 +29,16 @@ choix_commune = st.sidebar.multiselect("Commune", communes, default=communes)
 choix_ecole = st.sidebar.multiselect("Ecole", ecoles, default=ecoles)
 choix_annee = st.sidebar.selectbox("Année", [2024, 2025], index = 1)
 
+if not choix_ecole:
+    st.warning("Veuillez choisir au moins une école")
+    st.stop()
+elif not choix_commune:
+    st.warning("Veuillez choisir au moins une commune")
+    st.stop()
+elif not complet[(complet["commune"].isin(choix_commune)) &(complet["ecole"].isin(choix_ecole))].shape[0]:
+    st.warning("Cette(ces) école(s) n'est(ne sont) pas dans cette commune")
+    st.stop()
+
 
 filtre = complet[complet["commune"].isin(choix_commune)]
 filtre = filtre[complet["annee"] == choix_annee]
@@ -37,13 +47,6 @@ filtre = filtre[complet["ecole"].isin(choix_ecole)]
 complet_filtre = complet_filtre[complet_filtre["commune"].isin(choix_commune)]
 complet_filtre = complet_filtre[complet_filtre["annee"] == choix_annee]
 complet_filtre = complet_filtre[complet_filtre["ecole"].isin(choix_ecole)]
-
-if not choix_ecole:
-    st.warning("Veuillez choisir au moins une école")
-    st.stop()
-elif not choix_commune:
-    st.warning("Veuillez choisir au moins une commune")
-    st.stop()
 
 col1, col2, col3 = st.columns(3)
 
@@ -79,8 +82,8 @@ with tab2:
     st.bar_chart(eva_secteur, x_label="Secteur", y_label = "Taux de réussite (en %)")
     eva_secteur_df = eva_secteur.reset_index()
     sep1, sep2 = st.columns(2)
-    sep1.metric("Plus haut taux", f"{eva_secteur.max()}% ({eva_secteur_df.nlargest(1, "reussi")["secteur"][0]})")
-    sep2.metric("Plus faible taux", f"{eva_secteur.min()}% ({eva_secteur_df.nlargest(3, "reussi")["secteur"][2]})")
+    sep1.metric("Plus haut taux", f"{eva_secteur.max()}% ({eva_secteur_df.iloc[0]["secteur"]})")
+    sep2.metric("Plus faible taux", f"{eva_secteur.min()}% ({eva_secteur_df.iloc[-1]["secteur"]})")
 
 with tab3:
     st.title("Evolution de la réussite par commune")
@@ -132,9 +135,4 @@ st.title("Conclusion")
 st.markdown("Les filières réussissant le mieux sont SMP et SVT. Le secteur de l'école peut influer sur le taux de réussite de l'élève (constat que les écoles congréganistes ont un meilleur taux de réussite.) Les communes qui progressent le mieux sont Port-de-Paix, Saint-Marc et Jacmel, les départements qui progressent le mieux sont le Nord-Ouest et l'Artibonite. Les filles ont un taux de réussite légèrement supérieur généralement, mais cette tendance varie selon la filière observée. Toutefois, toutes les observations décrites ici ne sont que des estimations, elles ne permettent pas vraiment d'établir une corrélation entre différents facteurs comme la filière, le secteur etc... et la réussite des étudiants. Pour approfondir cette étude, il serait intéressant de mesurer l'influence de l'assiduité, des conditions d'apprentissage et des ressources pédagogiques, ces informations permettraient de mieux comprendre les facteurs qui influencent les résultats scolaires.")
 
 with st.expander("Données Filtrées"):
-    if not choix_commune:
-        st.warning("Veuillez choisir au moins une commune")
-    elif not choix_ecole:
-        st.warning("Veuillez choisir au moins une école")
-    else:
-        st.dataframe(filtre)
+    st.dataframe(filtre)
