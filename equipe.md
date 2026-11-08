@@ -17,6 +17,8 @@ Une ou deux phrases par membre, écrites par le membre lui-même.
 
 Narcisse: Différents diagnostics et nettoyage du fichier brut.
 
+Ralph: Jointure des différents fichiers et sauvegarde en un seul fichier (resultats_propre.csv)
+
 Cedrick: Résolution des questions 4 et 5 (réussite des filières et impact des secteurs) et graphes associés, et conclusion.
 
 Guy Lens: Résolution des questions 6 à 8 et graphes associés.
